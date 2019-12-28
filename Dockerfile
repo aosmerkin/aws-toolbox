@@ -1,8 +1,12 @@
 FROM python
 
-RUN apt-get update -y && \
-    apt-get install -y vim && \
-    pip install --upgrade --user --no-warn-script-location awsebcli awscli ansible
+RUN apt-get update -y  \
+    && apt-get install -y \
+        curl \
+        jq \
+        vim \
+    && rm -r /var/lib/apt/lists/* \
+    && pip install --upgrade awsebcli awscli ansible
 
 COPY ./.bashrc /root/.bashrc
 
