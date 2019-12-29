@@ -3,6 +3,7 @@ FROM python
 RUN apt-get update -y  \
     && apt-get install -y \
         curl \
+        gettext \
         jq \
         vim \
     && rm -r /var/lib/apt/lists/* \
